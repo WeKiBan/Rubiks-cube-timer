@@ -1,0 +1,26 @@
+{
+  "name": "Rubiks-cube-timer",
+  "version": "1.0.0",
+  "description": "A Personal project to make a rubik's cube timer web app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx webpack",
+    "watch": "npx webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WeKiBan/Rubiks-cube-timer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WeKiBan/Rubiks-cube-timer/issues"
+  },
+  "homepage": "https://github.com/WeKiBan/Rubiks-cube-timer#readme",
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
+}

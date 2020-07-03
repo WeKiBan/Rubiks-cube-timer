@@ -1,2 +1,2 @@
 # Rubiks-cube-timer
-A Personal project to make a rubiks cube timer web app
+A Personal project to make a rubik's cube timer web app.
