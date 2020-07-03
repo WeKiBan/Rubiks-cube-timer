@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+/* variables */
+
+:root {
+  --blue: #8585ff;
+  --red: #ff7070;
+  --green: #99ff99;
+  --yellow: #ffff85;
+  --orange: #ffcd70;
+  --off-white: #fff;
+  --grey: #000000a4;
+  --main-font: 'Quicksand', sans-serif;
+}
+
+/* main css */
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: var(--blue);
+  font-family: var(--main-font);
+  color: var(--off-white);
+  font-size: 1.6rem;
+}
+
+/* header and nav style */
+
+header {
+  background-color: var(--grey);
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 99999;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.cube-icon {
+  height: 3.5rem;
+}
+
+h1 {
+  font-weight: 400;
+  color: var(--off-white);
+  font-size: 3rem;
+  margin-left: 1rem;
+}
+.nav-btn-container {
+  margin-right: 1rem;
+}
+
+.nav-btn {
+  margin: 0.5rem;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+}
+
+.nav-btn:hover {
+  opacity: 0.5;
+  transform: scale(1.1);
+}
+
+/* timer styling */
+.scramble {
+  width: 80%;
+  text-align: center;
+  position: absolute;
+  top: 9rem;
+}
+
+.timer-container {
+  box-sizing: border-box;
+  height: calc(100vh);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+.timer {
+  font-size: 5rem;
+  cursor: pointer;
+  transition: ease-in-out 0.3s;
+  font-weight: 500;
+}
+
+.timer:hover {
+  transform: scale(1.05);
+  opacity: 0.6;
+}
+
+.timer-message {
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row: 1fr 1fr 1fr 1fr;
+  margin: 0 auto;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding: 2rem 0;
+  font-size: 1.3rem;
+  background-color: var(--grey);
+}
+
+.info-item.right-align {
+  text-align: right;
+  margin-right: 3rem;
+}
+
+.info-item.left-align {
+  text-align: left;
+  margin-left: 3rem;
+}
+.info-item {
+  margin-bottom: 0.9rem;
+}
+
+/* stats drop down styling */
+.stats-tab {
+  background-color: var(--red);
+  height: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+  top: 6rem;
+  height: 0;
+  transition: ease-in-out 1s;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats-tab-open {
+  height: 100%;
+  overflow: auto;
+}
+
+.settings-tab {
+  background-color: var(--green);
+  height: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+  top: 6rem;
+  height: 0;
+  transition: ease-in-out 1s;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings-tab-open {
+  height: 100%;
+  overflow: auto;
+}
