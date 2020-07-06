@@ -97,6 +97,8 @@ h1 {
   cursor: pointer;
   transition: ease-in-out 0.3s;
   font-weight: 500;
+  text-align: left;
+  width:23rem;
 }
 
 .timer:hover {
