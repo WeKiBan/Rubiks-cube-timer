@@ -5,7 +5,7 @@ import { resetStopWatchDisplay } from './timer';
 // query selector for message under timer and control buttons
 const timerMessage = document.querySelector('[data-timer-message]');
 const controlBtnsContainer = document.querySelector(
-  '[data-control-btns-container'
+  '[data-control-btns-container]'
 );
 const deleteBtn = controlBtnsContainer.querySelector('[data-delete-btn]');
 const dnfBtn = controlBtnsContainer.querySelector('[data-dnf-btn]');
@@ -67,7 +67,7 @@ export function showControlBtns() {
 
 //function to toggle selected class on dnf btn
 export function deselectDnfBtn() {
-  dnfBtn.classList.remove('selected');
+        dnfBtn.classList.remove('selected');
 }
 
 // function to delete time from array
@@ -180,6 +180,7 @@ function findSlowestOverall() {
     }
   }
 
+  //finds the overall number of solves not including unfinished
   function findAmountOfSolves(){
     let filteredArray = filterDnfTimes();
     if(filteredArray.length < 1){
@@ -206,4 +207,9 @@ dnfBtn.addEventListener('click', function (e) {
   dnfBtn.classList.toggle('selected');
   timesArray[0].setDnf();
   renderStatsDisplay();
+  timerMessage.focus();
+  dnfBtn.blur()
 });
+
+
+
