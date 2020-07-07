@@ -10,6 +10,8 @@ import { showControlBtns } from './data-and-controls';
 import { hideControlBtns } from './data-and-controls';
 import { deselectDnfBtn } from './data-and-controls';
 import { pushNewTime } from './data-and-controls';
+import { renderStatsDisplay } from './data-and-controls';
+import { currentScramble, scrambleDisplay } from './scramble';
 
 // query selectors for timer
 const timerDisplay = document.querySelector('[data-timer-display]');
@@ -59,11 +61,13 @@ function stopStopwatch() {
   // clear the interval timer
   clearInterval(timerInterval);
   // read the time from the stopwatch
-  time = moment.duration(Number(stopwatch.read()), 'milliseconds');
-   // update timer display with formatted time;
-   timerDisplay.textContent = formatTime(time);
+  time = stopwatch.read();
+  // update timer display with formatted time;
+  timerDisplay.textContent = formatTime(time);
   //push the time to the times array
-  pushNewTime(time);
+  pushNewTime(time, currentScramble);
+  //render the stats display
+  renderStatsDisplay();
   //reset the stopwatch
   stopwatch.reset();
   updateScrambleDisplay();
@@ -82,7 +86,7 @@ function startStopwatch() {
   stopwatchRunning = true;
   //set timer interval to update every millisecond
   timerInterval = setInterval(() => {
-    time = moment.duration(stopwatch.read(), 'milliseconds');
+    time = stopwatch.read();
     // update timer display with formatted time;
     timerDisplay.textContent = formatTime(time);
   }, 1);
@@ -90,7 +94,9 @@ function startStopwatch() {
 
 // function to format time into readable format
 export function formatTime(time) {
-  return time.format('mm:ss.SSS', { trim: false });
+  return moment
+    .duration(time, 'milliseconds')
+    .format('mm:ss.SSS', { trim: false });
 }
 // function to change background color
 function changeBackgroundColor() {
@@ -102,7 +108,7 @@ function changeBackgroundColor() {
 }
 
 // function to reset the stopwatch and the display
-export function resetStopWatchDisplay(){
+export function resetStopWatchDisplay() {
   timerContainer.style.backgroundColor = blue;
   stopwatch.reset();
   time = moment.duration(stopwatch.read(), 'milliseconds');

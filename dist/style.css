@@ -161,6 +161,10 @@ h1 {
   margin-bottom: 0.9rem;
 }
 
+.stat-item{
+  padding-left: 0.5rem;
+}
+
 /* stats drop down styling */
 .stats-tab {
   background-color: var(--red);
