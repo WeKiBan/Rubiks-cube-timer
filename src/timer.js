@@ -49,6 +49,8 @@ timerContainer.addEventListener('click', function (e) {
 //functions to start and stop stopwatch
 
 function stopStopwatch() {
+  //change background color
+  changeBackgroundColor();
   //stop the stop watch and update stopwatchRunning to false
   stopwatch.stop();
   stopwatchRunning = false;
@@ -56,8 +58,6 @@ function stopStopwatch() {
   hideShowNavButtons();
   //show control btns
   showControlBtns();
-  //change background color
-  changeBackgroundColor();
   // clear the interval timer
   clearInterval(timerInterval);
   // read the time from the stopwatch
