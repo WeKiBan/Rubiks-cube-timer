@@ -92,6 +92,7 @@ h1 {
   position: absolute;
   top: 0;
   width: 100%;
+  min-height: 50rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -100,12 +101,14 @@ h1 {
 }
 
 .timer {
+  position: absolute;
+  top:calc(50% - 6rem);
   font-size: 5rem;
   cursor: pointer;
   transition: ease-in-out 0.3s;
   font-weight: 500;
   text-align: left;
-  width:23rem;
+  width:22rem;
 }
 
 .timer:hover {
@@ -116,6 +119,20 @@ h1 {
 .timer-message {
   padding: 1rem;
   font-size: 1.5rem;
+}
+
+/* control buttons under timer */
+
+.control-btns-container{
+  position: absolute;
+  top:50%;
+}
+
+.control-btn{
+  height:2.5rem;
+  font-size: 1rem;
+  width:6rem;
+  cursor: pointer;
 }
 
 .stats-container {
@@ -185,6 +202,14 @@ h1 {
   overflow: auto;
 }
 
+
+/* general class to apply to elements */
 .hidden{
   display: none;
 }
+
+.selected{
+  color:white;
+}
+
+
