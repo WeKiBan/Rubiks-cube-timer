@@ -1722,7 +1722,19 @@ eval("module.exports = function(module) {\n\tif (!module.webpackPolyfill) {\n\t\
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scramble__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scramble */ \"./src/scramble.js\");\n/* harmony import */ var _timer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./timer */ \"./src/timer.js\");\n/* harmony import */ var _timer__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_timer__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _stats__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./stats */ \"./src/stats.js\");\n/* harmony import */ var _settings__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./settings */ \"./src/settings.js\");\n\n\n\n\n\n\n\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scramble__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scramble */ \"./src/scramble.js\");\n/* harmony import */ var _timer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./timer */ \"./src/timer.js\");\n/* harmony import */ var _nav_btns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./nav-btns */ \"./src/nav-btns.js\");\n\n\n\n\n\n\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/nav-btns.js":
+/*!*************************!*\
+  !*** ./src/nav-btns.js ***!
+  \*************************/
+/*! exports provided: controlSettingsMenu, controlStatsMenu, hideShowNavButtons */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"controlSettingsMenu\", function() { return controlSettingsMenu; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"controlStatsMenu\", function() { return controlStatsMenu; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"hideShowNavButtons\", function() { return hideShowNavButtons; });\n// query selectors settings\nconst settingsTab = document.querySelector('[data-settings-tab]');\nconst settingsBtn = document.querySelector('[data-settings-btn]');\n\n// query selectors stats\nconst statsTab = document.querySelector('[data-stats-tab]');\nconst statsBtn = document.querySelector('[data-stats-btn]');\n\n//query selectors for nav-btns\nconst navBtnsContainer = document.querySelector('[data-nav-btn-container]');\n\n// function to open and close settings menu\nfunction controlSettingsMenu() {\n  settingsTab.classList.toggle('settings-tab-open');\n}\n\n// function to open and close stats menu\nfunction controlStatsMenu() {\n  statsTab.classList.toggle('stats-tab-open');\n}\n\n// function to hide and show nav buttons in the top bar\nfunction hideShowNavButtons() {\n  navBtnsContainer.classList.toggle('hidden');\n}\n\n// event listeners for settings\nsettingsBtn.onclick = controlSettingsMenu;\n\n// event listeners for stats\nstatsBtn.onclick = controlStatsMenu;\n\n\n//# sourceURL=webpack:///./src/nav-btns.js?");
 
 /***/ }),
 
@@ -1734,31 +1746,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scr
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"updateScrambleDisplay\", function() { return updateScrambleDisplay; });\n/* harmony import */ var sr_scrambler__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sr-scrambler */ \"./node_modules/sr-scrambler/dist/index.js\");\n/* harmony import */ var sr_scrambler__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sr_scrambler__WEBPACK_IMPORTED_MODULE_0__);\n// required module to generate scrambles;\n\n\n// query selectors\nconst scrambleDisplay = document.querySelector('[data-scramble-display]');\n\nfunction updateScrambleDisplay() {\n  scrambleDisplay.innerText = sr_scrambler__WEBPACK_IMPORTED_MODULE_0__[\"generateHtmlScramble\"](3, 30);\n}\n\nupdateScrambleDisplay();\n\n\n\n\n//# sourceURL=webpack:///./src/scramble.js?");
-
-/***/ }),
-
-/***/ "./src/settings.js":
-/*!*************************!*\
-  !*** ./src/settings.js ***!
-  \*************************/
-/*! exports provided: controlSettingsMenu */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"controlSettingsMenu\", function() { return controlSettingsMenu; });\n// query selectors\nconst settingsTab = document.querySelector('[data-settings-tab]');\nconst settingsBtn = document.querySelector('[data-settings-btn]');\n\n\n\n// controls to open and close menus\n function controlSettingsMenu() {\n  settingsTab.classList.toggle('settings-tab-open');\n}\n\n// event listeners\nsettingsBtn.onclick = controlSettingsMenu;\n\n//# sourceURL=webpack:///./src/settings.js?");
-
-/***/ }),
-
-/***/ "./src/stats.js":
-/*!**********************!*\
-  !*** ./src/stats.js ***!
-  \**********************/
-/*! exports provided: controlStatsMenu */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"controlStatsMenu\", function() { return controlStatsMenu; });\n// query selectors\nconst statsTab = document.querySelector('[data-stats-tab]');\nconst statsBtn = document.querySelector('[data-stats-btn]');\n\n// function to open and close stats menu\nfunction controlStatsMenu() {\n  statsTab.classList.toggle('stats-tab-open');\n}\n\n// event listeners\nstatsBtn.onclick = controlStatsMenu;\n\n\n//# sourceURL=webpack:///./src/stats.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"updateScrambleDisplay\", function() { return updateScrambleDisplay; });\n/* harmony import */ var sr_scrambler__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sr-scrambler */ \"./node_modules/sr-scrambler/dist/index.js\");\n/* harmony import */ var sr_scrambler__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sr_scrambler__WEBPACK_IMPORTED_MODULE_0__);\n// required module to generate scrambles;\n\n\n// query selectors\nconst scrambleDisplay = document.querySelector('[data-scramble-display]');\n\n\n// function to update scramble\nfunction updateScrambleDisplay() {\n  scrambleDisplay.innerText = sr_scrambler__WEBPACK_IMPORTED_MODULE_0__[\"generateHtmlScramble\"](3, 30);\n}\n\nscrambleDisplay.addEventListener('click', function(e){\n  e.stopPropagation();\n  updateScrambleDisplay();\n})\n\n\nupdateScrambleDisplay();\n\n\n\n\n//# sourceURL=webpack:///./src/scramble.js?");
 
 /***/ }),
 
@@ -1766,10 +1754,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*!**********************!*\
   !*** ./src/timer.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("// required modules to make stopwatch work\nconst Stopwatch = __webpack_require__(/*! statman-stopwatch */ \"./node_modules/statman-stopwatch/lib/Stopwatch.js\");\nvar moment = __webpack_require__(/*! moment */ \"./node_modules/moment/moment.js\");\nvar momentDurationFormatSetup = __webpack_require__(/*! moment-duration-format */ \"./node_modules/moment-duration-format/lib/moment-duration-format.js\");\n\n// query selectors for timer\nvar timerDisplay = document.querySelector('[data-timer-display]');\n\n// variables for stopwatch\nconst stopwatch = new Stopwatch();\nlet stopwatchRunning = false;\nlet time;\nlet timerInterval;\n\n// event listeners for stopwatch\n\ndocument.addEventListener('keyup', (e) => {\n  if (!stopwatchRunning && e.code === 'Space') {\n    startStopwatch();\n  } else if (stopwatchRunning && e.code === 'Space') {\n    stopStopwatch();\n  }\n});\n\nfunction stopStopwatch() {\n  // clear the interval timer\n  clearInterval(timerInterval);\n  //stop the stop watch and update stopwatchRunning to false\n  stopwatch.stop();\n  stopwatchRunning = false;\n  // read the time from the stopwatch\n  time = moment.duration(Number(stopwatch.read()), 'milliseconds');\n  //reset the stopwatch\n  stopwatch.reset();\n}\n\nfunction startStopwatch() {\n  // start stopwatch and update stopwatchRunning to true;\n  stopwatch.start();\n  stopwatchRunning = true;\n  //set timer interval to update every millisecond\n  timerInterval = setInterval(() => {\n    time = moment.duration(stopwatch.read(), 'milliseconds');\n    // update timer display with formatted time;\n    timerDisplay.textContent = time.format('mm:ss.SSS', { trim: false });\n  }, 1);\n}\n\n\n//# sourceURL=webpack:///./src/timer.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scramble__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scramble */ \"./src/scramble.js\");\n/* harmony import */ var _nav_btns__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./nav-btns */ \"./src/nav-btns.js\");\n// required modules to make stopwatch work\nconst Stopwatch = __webpack_require__(/*! statman-stopwatch */ \"./node_modules/statman-stopwatch/lib/Stopwatch.js\");\nvar moment = __webpack_require__(/*! moment */ \"./node_modules/moment/moment.js\");\nvar momentDurationFormatSetup = __webpack_require__(/*! moment-duration-format */ \"./node_modules/moment-duration-format/lib/moment-duration-format.js\");\n\n\n\n// query selectors for timer\nconst timerDisplay = document.querySelector('[data-timer-display]');\nconst timerContainer = document.querySelector('[data-timer-container]');\n\n// variables for stopwatch\nconst stopwatch = new Stopwatch();\nlet stopwatchRunning = false;\nlet time;\nlet timerInterval;\n\n// color variables\nconst blue = '#8585ff';\nconst red = '#ff7070';\nconst green = '#8deb8d';\n\n// event listeners for stopwatch\n\ndocument.addEventListener('keyup', (e) => {\n  if (!stopwatchRunning && e.code === 'Space') {\n    startStopwatch();\n  } else if (stopwatchRunning && e.code === 'Space') {\n    stopStopwatch();\n  }\n});\n\ntimerContainer.addEventListener('click', function (e) {\n  if (!stopwatchRunning) {\n    startStopwatch();\n  } else if (stopwatchRunning) {\n    stopStopwatch();\n  }\n});\n\n//functions to start and stop stopwatch\n\nfunction stopStopwatch() {\n  //show nav btns\n  Object(_nav_btns__WEBPACK_IMPORTED_MODULE_1__[\"hideShowNavButtons\"])();\n  //change background color\n  changeBackgroundColor();\n  // clear the interval timer\n  clearInterval(timerInterval);\n  //stop the stop watch and update stopwatchRunning to false\n  stopwatch.stop();\n  stopwatchRunning = false;\n  // read the time from the stopwatch\n  time = moment.duration(Number(stopwatch.read()), 'milliseconds');\n  //reset the stopwatch\n  stopwatch.reset();\n  Object(_scramble__WEBPACK_IMPORTED_MODULE_0__[\"updateScrambleDisplay\"])();\n}\n\nfunction startStopwatch() {\n  //hide nav btns\n  Object(_nav_btns__WEBPACK_IMPORTED_MODULE_1__[\"hideShowNavButtons\"])();\n  //change background color\n  changeBackgroundColor();\n  // start stopwatch and update stopwatchRunning to true;\n  stopwatch.start();\n  stopwatchRunning = true;\n  //set timer interval to update every millisecond\n  timerInterval = setInterval(() => {\n    time = moment.duration(stopwatch.read(), 'milliseconds');\n    // update timer display with formatted time;\n    timerDisplay.textContent = time.format('mm:ss.SSS', { trim: false });\n  }, 1);\n}\n\n// function to change background color\nfunction changeBackgroundColor() {\n  if (stopwatchRunning) {\n    timerContainer.style.backgroundColor = red;\n  } else if (!stopwatchRunning) {\n    timerContainer.style.backgroundColor = green;\n  }\n}\n\n\n\n//# sourceURL=webpack:///./src/timer.js?");
 
 /***/ })
 
