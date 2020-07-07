@@ -5,7 +5,7 @@
 :root {
   --blue: #8585ff;
   --red: #ff7070;
-  --green: #99ff99;
+  --green: #8deb8d;
   --yellow: #ffff85;
   --orange: #ffcd70;
   --off-white: #fff;
@@ -77,6 +77,13 @@ h1 {
   text-align: center;
   position: absolute;
   top: 9rem;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+}
+
+.scramble:hover{
+  transform: scale(1.02);
+  opacity: 0.6;
 }
 
 .timer-container {
@@ -176,4 +183,8 @@ h1 {
 .settings-tab-open {
   height: 100%;
   overflow: auto;
+}
+
+.hidden{
+  display: none;
 }
