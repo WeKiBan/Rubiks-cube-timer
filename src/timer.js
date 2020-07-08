@@ -3,8 +3,8 @@ const Stopwatch = require('statman-stopwatch');
 var moment = require('moment');
 var momentDurationFormatSetup = require('moment-duration-format');
 import { updateScrambleDisplay } from './scramble';
-import { hideShowNavButtons } from './nav-btns';
-import { showTimerMessage } from './data-and-controls';
+import { hideShowNavButtons } from './stats-settings-menu';
+import { showTimerMessage, timesArray } from './data-and-controls';
 import { hideTimerMessage } from './data-and-controls';
 import { showControlBtns } from './data-and-controls';
 import { hideControlBtns } from './data-and-controls';
@@ -12,6 +12,7 @@ import { deselectDnfBtn } from './data-and-controls';
 import { pushNewTime } from './data-and-controls';
 import { renderStatsDisplay } from './data-and-controls';
 import { currentScramble, scrambleDisplay } from './scramble';
+import {saveToLocalStorage} from './data-and-controls'
 
 // query selectors for timer
 const timerDisplay = document.querySelector('[data-timer-display]');
@@ -71,6 +72,7 @@ function stopStopwatch() {
   //reset the stopwatch
   stopwatch.reset();
   updateScrambleDisplay();
+  saveToLocalStorage();
 }
 
 function startStopwatch() {
@@ -114,3 +116,4 @@ export function resetStopWatchDisplay() {
   time = moment.duration(stopwatch.read(), 'milliseconds');
   timerDisplay.textContent = formatTime(time);
 }
+

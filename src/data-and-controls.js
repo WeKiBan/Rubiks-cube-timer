@@ -20,8 +20,15 @@ const fastestOfAllDisplay = document.querySelector('[data-fastest-all]');
 const numberOfSolvesDisplay = document.querySelector('[data-number-solves]');
 const overallAverageDisplay = document.querySelector('[data-average-all]');
 
-// array of time objects
-let timesArray = [];
+// array of time objects and local storage key
+const LOCAL_STORAGE_LIST_KEY = 'saved.times'
+export let timesArray = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
+
+
+// function to save to local storage
+export function saveToLocalStorage(){
+  localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(timesArray));
+}
 
 //class to create time objects
 export class Time {
@@ -75,7 +82,7 @@ function deleteTime(timeId) {
     timesArray = timesArray.filter(times => times.id !== timeId);
 }
 
-function filterDnfTimes() {
+export function filterDnfTimes() {
   let filteredArray = timesArray.filter((time) => time.dnfValue === false);
   return filteredArray;
 }
@@ -200,6 +207,7 @@ deleteBtn.addEventListener('click', function (e) {
   hideControlBtns();
   showTimerMessage();
   renderStatsDisplay();
+  saveToLocalStorage();
 });
 
 dnfBtn.addEventListener('click', function (e) {
@@ -209,6 +217,7 @@ dnfBtn.addEventListener('click', function (e) {
   renderStatsDisplay();
   timerMessage.focus();
   dnfBtn.blur()
+  saveToLocalStorage();
 });
 
 
