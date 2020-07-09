@@ -32,6 +32,7 @@ const orange = '#ffc077';
 
 // event listeners for stopwatch
 
+//starts stopwatch when space bar is released
 document.addEventListener('keyup', (e) => {
   if (!stopwatchRunning && e.code === 'Space') {
     startStopwatch();
@@ -40,11 +41,45 @@ document.addEventListener('keyup', (e) => {
   }
 });
 
+// starts stopwatch when mouse is released
 timerContainer.addEventListener('mouseup', function (e) {
   if (!stopwatchRunning) {
     startStopwatch();
   } else if (stopwatchRunning) {
     stopStopwatch();
+  }
+});
+
+// starts stopwatch when touch is released
+timerContainer.addEventListener('touchend', function (e) {
+  e.preventDefault();
+  if (!stopwatchRunning) {
+    startStopwatch();
+  } else if (stopwatchRunning) {
+    stopStopwatch();
+  }
+});
+
+//changes background color to orange while spacebar is held down before timer starts
+document.body.onkeydown = function (e) {
+  if (!stopwatchRunning && e.code === 'Space') {
+    timerContainer.style.backgroundColor = orange;
+  }
+};
+
+//changes background color to orange on mousedown before time starts
+timerContainer.addEventListener('mousedown', function (e) {
+  if (!stopwatchRunning && e.target.type !== 'submit') {
+    timerContainer.style.backgroundColor = orange;
+  }
+});
+
+//changes background color to orange on touch before time starts
+
+timerContainer.addEventListener('touchstart', function (e) {
+  e.preventDefault();
+  if (!stopwatchRunning && e.target.type !== 'submit') {
+    timerContainer.style.backgroundColor = orange;
   }
 });
 
@@ -75,26 +110,6 @@ function stopStopwatch() {
   updateScrambleDisplay();
   saveToLocalStorage();
 }
-
-//changes background color to orange while spacebar is held down before timer starts
-document.body.onkeydown = function (e) {
-  if (!stopwatchRunning && e.code === 'Space') {
-    timerContainer.style.backgroundColor = orange;
-  }
-};
-
-//changes background color to orange on mousedown befre time starts
-timerContainer.addEventListener('mousedown', function (e) {
-  if (!stopwatchRunning && e.target.type !== 'submit') {
-    timerContainer.style.backgroundColor = orange;
-  }
-});
-
-timerContainer.addEventListener('touchstart', function (e) {
-  if (!stopwatchRunning && e.target.type !== 'submit') {
-    timerContainer.style.backgroundColor = orange;
-  }
-});
 
 function startStopwatch() {
   //hide nav btns, control btns and timer message and deselect dnf btn
