@@ -42,7 +42,7 @@ document.addEventListener('keyup', (e) => {
 });
 
 // starts stopwatch when mouse is released
-timerContainer.addEventListener('mouseup', function (e) {
+timerContainer.addEventListener('click', function (e) {
   if (!stopwatchRunning) {
     startStopwatch();
   } else if (stopwatchRunning) {
@@ -52,10 +52,11 @@ timerContainer.addEventListener('mouseup', function (e) {
 
 // starts stopwatch when touch is released
 timerContainer.addEventListener('touchend', function (e) {
-  e.preventDefault();
   if (!stopwatchRunning && e.target.type !== 'submit') {
+    e.preventDefault();
     startStopwatch();
   } else if (stopwatchRunning) {
+    e.preventDefault();
     stopStopwatch();
   }
 });
@@ -77,8 +78,8 @@ timerContainer.addEventListener('mousedown', function (e) {
 //changes background color to orange on touch before time starts
 
 timerContainer.addEventListener('touchstart', function (e) {
-  e.preventDefault();
   if (!stopwatchRunning && e.target.type !== 'submit') {
+    e.preventDefault();
     timerContainer.style.backgroundColor = orange;
   }
 });
