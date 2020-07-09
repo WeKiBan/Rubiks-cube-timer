@@ -24,6 +24,7 @@ body {
   font-family: var(--main-font);
   color: var(--off-white);
   font-size: 1.6rem;
+  user-select:none;
 }
 
 /* header and nav style */
@@ -80,6 +81,7 @@ h1 {
   top: 9rem;
   cursor: pointer;
   transition: ease-in-out 0.2s;
+  user-select:none;
 }
 
 .scramble:hover{
@@ -110,6 +112,7 @@ h1 {
   font-weight: 500;
   text-align: left;
   width:22rem;
+  user-select:none;
 }
 
 .timer:hover {
@@ -120,6 +123,7 @@ h1 {
 .timer-message {
   padding: 1rem;
   font-size: 1.5rem;
+  user-select:none;
 }
 
 /* control buttons under timer */
@@ -149,6 +153,7 @@ h1 {
   font-size: 1.3rem;
   background-color: var(--grey);
   border-top: solid white 0.2rem;
+  user-select:none;
 }
 
 .info-item.right-align {
