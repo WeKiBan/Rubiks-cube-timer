@@ -48,18 +48,6 @@ timerContainer.addEventListener('click', function (e) {
   }
 });
 
-// event listener to make stopwatch run on touchscreen phone when  screen is released
-
-timerContainer.addEventListener('touchend', (e) => {
-  if (!stopwatchRunning) {
-    startStopwatch();
-  } else if (stopwatchRunning) {
-    stopStopwatch();
-  }
-});
-
-
-
 //functions to start and stop stopwatch
 
 function stopStopwatch() {
