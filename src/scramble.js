@@ -8,7 +8,7 @@ export let currentScramble;
 // function to update scramble
 
 export function updateScrambleDisplay() {
-  currentScramble = SRScrambler.generateHtmlScramble(3, 30)
+  currentScramble = SRScrambler.generateHtmlScramble(3, 20)
   scrambleDisplay.innerText = currentScramble;
 }
 

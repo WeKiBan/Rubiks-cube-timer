@@ -11,6 +11,7 @@ const settingsBtn = document.querySelector('[data-settings-btn]');
 const statsTab = document.querySelector('[data-stats-tab]');
 const statsBtn = document.querySelector('[data-stats-btn]');
 const filterBtn = document.querySelector('[data-filter');
+const closeStatsBtn = document.querySelector('[data-close-stats-tab]');
 
 //query selectors for nav-btns
 const navBtnsContainer = document.querySelector('[data-nav-btn-container]');
@@ -42,11 +43,15 @@ statsBtn.addEventListener('click', function(){
   }
 }) 
 
+closeStatsBtn.onclick = function(){
+  controlStatsMenu();
+};
+
 // chart on stats tab
 var CHART = document.getElementById('lineChart');
 
 export function createChart() {
-  let filteredArray = filterDnfTimes().map((item) => item.recordedTime / 1000);
+  let filteredArray = filterDnfTimes().map((item) => (item.recordedTime / 1000).toFixed(3)).reverse();
   let labels = [];
   for (let i = 1; i <= filteredArray.length; i++) {
     labels.push(i);

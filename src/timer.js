@@ -28,6 +28,7 @@ let timerInterval;
 const blue = '#8585ff';
 const red = '#ff7070';
 const green = '#8deb8d';
+const orange = '#ffc077'
 
 // event listeners for stopwatch
 
@@ -74,6 +75,15 @@ function stopStopwatch() {
   updateScrambleDisplay();
   saveToLocalStorage();
 }
+
+//changes background color to orange while spacebar is held down before timer starts
+ document.body.onkeydown = function(e){
+   console.log(e.key);
+  if(!stopwatchRunning && e.code === 'Space'){
+   timerContainer.style.backgroundColor = orange;
+   }
+ }
+
 
 function startStopwatch() {
   //hide nav btns, control btns and timer message and deselect dnf btn
