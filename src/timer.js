@@ -49,6 +49,8 @@ timerContainer.addEventListener('click', function (e) {
   }
 });
 
+
+
 //functions to start and stop stopwatch
 
 function stopStopwatch() {
@@ -85,11 +87,18 @@ document.body.onkeydown = function (e) {
 };
 
 //changes background color to orange on mousedown befre time starts
-timerContainer.addEventListener('mousedown', function(){
-  if (!stopwatchRunning) {
+timerContainer.addEventListener('mousedown', function(e){
+  if (!stopwatchRunning && e.target.type !== 'submit') {
     timerContainer.style.backgroundColor = orange;
   }
 })
+
+timerContainer.addEventListener('touchstart', function(e){
+  if (!stopwatchRunning && e.target.type !== 'submit') {
+    timerContainer.style.backgroundColor = orange;
+  }
+})
+
 
 function startStopwatch() {
   //hide nav btns, control btns and timer message and deselect dnf btn
