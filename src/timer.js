@@ -12,7 +12,7 @@ import { deselectDnfBtn } from './data-and-controls';
 import { pushNewTime } from './data-and-controls';
 import { renderStatsDisplay } from './data-and-controls';
 import { currentScramble, scrambleDisplay } from './scramble';
-import {saveToLocalStorage} from './data-and-controls'
+import { saveToLocalStorage } from './data-and-controls';
 
 // query selectors for timer
 const timerDisplay = document.querySelector('[data-timer-display]');
@@ -28,7 +28,7 @@ let timerInterval;
 const blue = '#8585ff';
 const red = '#ff7070';
 const green = '#8deb8d';
-const orange = '#ffc077'
+const orange = '#ffc077';
 
 // event listeners for stopwatch
 
@@ -39,6 +39,7 @@ document.addEventListener('keyup', (e) => {
     stopStopwatch();
   }
 });
+
 
 timerContainer.addEventListener('click', function (e) {
   if (!stopwatchRunning) {
@@ -77,12 +78,18 @@ function stopStopwatch() {
 }
 
 //changes background color to orange while spacebar is held down before timer starts
- document.body.onkeydown = function(e){
-   console.log(e.key);
-  if(!stopwatchRunning && e.code === 'Space'){
-   timerContainer.style.backgroundColor = orange;
-   }
- }
+document.body.onkeydown = function (e) {
+  if (!stopwatchRunning && e.code === 'Space') {
+    timerContainer.style.backgroundColor = orange;
+  }
+};
+
+//changes background color to orange on mousedown befre time starts
+timerContainer.addEventListener('mousedown', function(){
+  if (!stopwatchRunning) {
+    timerContainer.style.backgroundColor = orange;
+  }
+})
 
 
 function startStopwatch() {
@@ -126,4 +133,3 @@ export function resetStopWatchDisplay() {
   time = moment.duration(stopwatch.read(), 'milliseconds');
   timerDisplay.textContent = formatTime(time);
 }
-
