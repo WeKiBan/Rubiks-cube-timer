@@ -4,12 +4,12 @@
   "display": "fullscreen",
   "icons": [
     {
-      "src": "./images/icons8-rubik's-cube-48.png",
+      "src": "rubiks.png",
       "sizes": "48x48",
       "type": "image/png"
     }
   ],
   "name": "PB Rubik's Cube Timer",
-  "short_name": "PB Timer",
+  "short_name": "PB Timer1 ",
   "start_url": "index.html"
 }
