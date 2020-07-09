@@ -19,11 +19,13 @@ const navBtnsContainer = document.querySelector('[data-nav-btn-container]');
 // function to open and close settings menu
 export function controlSettingsMenu() {
   settingsTab.classList.toggle('settings-tab-open');
+  
 }
 
 // function to open and close stats menu
 export function controlStatsMenu() {
   statsTab.classList.toggle('stats-tab-open');
+  statsBtn.blur();
 }
 
 // function to hide and show nav buttons in the top bar
@@ -32,7 +34,10 @@ export function hideShowNavButtons() {
 }
 
 // event listeners for settings
-settingsBtn.onclick = controlSettingsMenu;
+settingsBtn.addEventListener('click', function(e){
+  controlSettingsMenu();
+  settingsBtn.blur();
+})
 
 // event listeners for stats
 statsBtn.addEventListener('click', function () {
@@ -41,6 +46,7 @@ statsBtn.addEventListener('click', function () {
   if (statsTab.classList.contains('stats-tab-open')) {
     createChart();
   }
+  
 });
 
 closeStatsBtn.onclick = function () {
