@@ -91,7 +91,6 @@ timerContainer.addEventListener('mousedown', function(){
   }
 })
 
-
 function startStopwatch() {
   //hide nav btns, control btns and timer message and deselect dnf btn
   hideShowNavButtons();

@@ -35,23 +35,32 @@ export function hideShowNavButtons() {
 settingsBtn.onclick = controlSettingsMenu;
 
 // event listeners for stats
-statsBtn.addEventListener('click', function(){
+statsBtn.addEventListener('click', function () {
   controlStatsMenu();
   // if stats tab is open create the chart on opening
-  if(statsTab.classList.contains('stats-tab-open')){
+  if (statsTab.classList.contains('stats-tab-open')) {
     createChart();
   }
-}) 
+});
 
-closeStatsBtn.onclick = function(){
+closeStatsBtn.onclick = function () {
   controlStatsMenu();
 };
+
+// resize settings/stats dropdown boxes when window is resized
+window.addEventListener('resize', function () {
+console.log('fire');
+  statsTab.style.height = '';
+  settingsTab.style.height = '';
+});
 
 // chart on stats tab
 var CHART = document.getElementById('lineChart');
 
 export function createChart() {
-  let filteredArray = filterDnfTimes().map((item) => (item.recordedTime / 1000).toFixed(3)).reverse();
+  let filteredArray = filterDnfTimes()
+    .map((item) => (item.recordedTime / 1000).toFixed(3))
+    .reverse();
   let labels = [];
   for (let i = 1; i <= filteredArray.length; i++) {
     labels.push(i);
@@ -72,21 +81,23 @@ export function createChart() {
         display: false,
       },
       scales: {
-        yAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: 'Time in seconds'
-          }
-        }],
-        xAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: 'Solves'
-          }
-        }]
-      }
+        yAxes: [
+          {
+            scaleLabel: {
+              display: true,
+              labelString: 'Time in seconds',
+            },
+          },
+        ],
+        xAxes: [
+          {
+            scaleLabel: {
+              display: true,
+              labelString: 'Solves',
+            },
+          },
+        ],
+      },
     },
   });
 }
-
-
