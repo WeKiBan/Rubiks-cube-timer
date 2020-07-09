@@ -40,8 +40,17 @@ document.addEventListener('keyup', (e) => {
   }
 });
 
-
 timerContainer.addEventListener('click', function (e) {
+  if (!stopwatchRunning) {
+    startStopwatch();
+  } else if (stopwatchRunning) {
+    stopStopwatch();
+  }
+});
+
+// event listener to make stopwatch run on touchscreen phone when  screen is released
+
+timerContainer.addEventListener('touchend', (e) => {
   if (!stopwatchRunning) {
     startStopwatch();
   } else if (stopwatchRunning) {
