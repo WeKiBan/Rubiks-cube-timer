@@ -53,7 +53,7 @@ timerContainer.addEventListener('mouseup', function (e) {
 // starts stopwatch when touch is released
 timerContainer.addEventListener('touchend', function (e) {
   e.preventDefault();
-  if (!stopwatchRunning) {
+  if (!stopwatchRunning && e.target.type !== 'submit') {
     startStopwatch();
   } else if (stopwatchRunning) {
     stopStopwatch();
