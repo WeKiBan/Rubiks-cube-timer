@@ -1,5 +1,5 @@
 {
-  "background_color": "purple",
+  "background_color": "#8585ff",
   "description": "A timer to record you Rubiks cube solves.",
   "display": "fullscreen",
   "icons": [
@@ -9,7 +9,7 @@
       "type": "image/png"
     }
   ],
-  "name": "PB Rubik's Cube Timer",
+  "name": "PB Cube Timer",
   "short_name": "PB Timer",
   "start_url": "index.html"
 }
