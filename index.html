@@ -4,6 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<script type='text/javascript' charset='utf-8'>
+    // Hides mobile browser's address bar when page is done loading.
+      window.addEventListener('load', function(e) {
+        setTimeout(function() { window.scrollTo(0, 1); }, 1);
+      }, false);
+</script>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
     <script defer src="index.js"></script>
@@ -25,12 +33,13 @@
         </div>
     </header>
     <div class="stats-tab" data-stats-tab>
+        <i class="fas fa-times close-btn" data-close-stats-tab></i>
         <div class="chart-container">
             <canvas id="lineChart" width="400" height="400"></canvas>
         </div>
-        <button data-filter>filter</button>
     </div>
     <div class="settings-tab" data-settings-tab>
+        <i class="fas fa-times close-btn"></i>
     </div>
     <div class="timer-container" data-timer-container>
         <p class="scramble" data-scramble-display>F' L2 B' L R2 D R L2 D' B' U' R' U' F' U2 D B2 F D2 L B' L2 U L' B</p>

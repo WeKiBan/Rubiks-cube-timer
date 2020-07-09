@@ -218,6 +218,13 @@ h1 {
   overflow: auto;
 }
 
+.close-btn{
+  position: absolute;
+  right:1rem;
+  top:1rem;
+  cursor: pointer;
+}
+
 
 /* general class to apply to elements */
 .hidden{
