@@ -121,9 +121,11 @@ h1 {
 }
 
 .timer-message {
+  margin-top:2rem;
   padding: 1rem;
   font-size: 1.5rem;
   user-select:none;
+  text-align: center;
 }
 
 /* control buttons under timer */
