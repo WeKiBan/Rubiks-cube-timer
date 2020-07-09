@@ -40,7 +40,7 @@ document.addEventListener('keyup', (e) => {
   }
 });
 
-timerContainer.addEventListener('click', function (e) {
+timerContainer.addEventListener('mouseup', function (e) {
   if (!stopwatchRunning) {
     startStopwatch();
   } else if (stopwatchRunning) {
@@ -84,18 +84,17 @@ document.body.onkeydown = function (e) {
 };
 
 //changes background color to orange on mousedown befre time starts
-timerContainer.addEventListener('mousedown', function(e){
+timerContainer.addEventListener('mousedown', function (e) {
   if (!stopwatchRunning && e.target.type !== 'submit') {
     timerContainer.style.backgroundColor = orange;
   }
-})
+});
 
-timerContainer.addEventListener('touchstart', function(e){
+timerContainer.addEventListener('touchstart', function (e) {
   if (!stopwatchRunning && e.target.type !== 'submit') {
     timerContainer.style.backgroundColor = orange;
   }
-})
-
+});
 
 function startStopwatch() {
   //hide nav btns, control btns and timer message and deselect dnf btn
