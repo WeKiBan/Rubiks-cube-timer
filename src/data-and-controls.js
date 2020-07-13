@@ -201,6 +201,7 @@ function findSlowestOverall() {
   export function clearHistory(){
     localStorage.clear();
     location.reload();
+    console.log('fired');
   }
 
 // event listeners for control btns
