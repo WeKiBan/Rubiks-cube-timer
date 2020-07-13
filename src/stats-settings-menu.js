@@ -1,8 +1,12 @@
-import { timesArray, renderStatsDisplay, clearHistory} from './data-and-controls';
+import {
+  timesArray,
+  renderStatsDisplay,
+  clearHistory,
+} from './data-and-controls';
 import { filterDnfTimes } from './data-and-controls';
 var moment = require('moment');
 import Chart from 'chart.js';
-
+var Tabulator = require('tabulator-tables');
 
 // query selectors settings
 const settingsTab = document.querySelector('[data-settings-tab]');
@@ -58,8 +62,8 @@ settingsBtn.addEventListener('click', function (e) {
   settingsBtn.blur();
 });
 
-clearHistoryBtn.addEventListener('click', function(){
-clearHistory();
+clearHistoryBtn.addEventListener('click', function () {
+  clearHistory();
 });
 
 // event listeners for stats
@@ -171,3 +175,16 @@ export function createChart() {
     },
   });
 }
+
+var table = new Tabulator('#times-table', {
+  data: timesArray,
+  layout: "fitData",
+  tooltips:true,
+  height: '311px',
+  columns: [
+  {title: "Time", field:"formattedTime"},
+  {title: "Scramble", field:"scramble"}
+  ],
+});
+
+console.log(timesArray);
