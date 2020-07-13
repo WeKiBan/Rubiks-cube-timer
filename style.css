@@ -68,6 +68,7 @@ h1 {
   font-size: 2.5rem;
   cursor: pointer;
   transition: ease-in-out 0.2s;
+  user-select: none;
 }
 
 .nav-btn:hover {
@@ -257,6 +258,7 @@ h1 {
   cursor: pointer;
   font-size: 2.5rem;
   transition: ease-in-out 0.2s;
+  user-select: none;
 }
 .close-btn:hover{
   opacity: 0.5;
