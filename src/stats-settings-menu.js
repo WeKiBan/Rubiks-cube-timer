@@ -1,11 +1,13 @@
-import { timesArray } from './data-and-controls';
+import { timesArray, renderStatsDisplay, clearHistory} from './data-and-controls';
 import { filterDnfTimes } from './data-and-controls';
 var moment = require('moment');
 import Chart from 'chart.js';
 
+
 // query selectors settings
 const settingsTab = document.querySelector('[data-settings-tab]');
 const settingsBtn = document.querySelector('[data-settings-btn]');
+const clearHistoryBtn = document.querySelector('[data-clear-history-btn');
 
 // query selectors stats
 const statsTab = document.querySelector('[data-stats-tab]');
@@ -54,6 +56,10 @@ export function hideShowNavButtons() {
 settingsBtn.addEventListener('click', function (e) {
   controlSettingsMenu();
   settingsBtn.blur();
+});
+
+clearHistoryBtn.addEventListener('click', function(){
+clearHistory();
 });
 
 // event listeners for stats
