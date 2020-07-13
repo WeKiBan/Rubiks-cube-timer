@@ -52,7 +52,7 @@ timerContainer.addEventListener('click', function (e) {
 
 // starts stopwatch when touch is released
 timerContainer.addEventListener('touchend', function (e) {
-  if (!stopwatchRunning && e.target.type !== 'submit') {
+  if (!stopwatchRunning && e.target.type !== 'submit' && !e.target.classList.contains('scramble')) {
     e.preventDefault();
     startStopwatch();
   } else if (stopwatchRunning) {
@@ -70,7 +70,7 @@ document.body.onkeydown = function (e) {
 
 //changes background color to orange on mousedown before time starts
 timerContainer.addEventListener('mousedown', function (e) {
-  if (!stopwatchRunning && e.target.type !== 'submit') {
+  if (!stopwatchRunning && e.target.type !== 'submit' && !e.target.classList.contains('scramble')) {
     timerContainer.style.backgroundColor = orange;
   }
 });
@@ -78,7 +78,7 @@ timerContainer.addEventListener('mousedown', function (e) {
 //changes background color to orange on touch before time starts
 
 timerContainer.addEventListener('touchstart', function (e) {
-  if (!stopwatchRunning && e.target.type !== 'submit') {
+  if (!stopwatchRunning && e.target.type !== 'submit' && !e.target.classList.contains('scramble')) {
     e.preventDefault();
     timerContainer.style.backgroundColor = orange;
   }

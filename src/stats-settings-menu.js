@@ -11,21 +11,38 @@ const settingsBtn = document.querySelector('[data-settings-btn]');
 const statsTab = document.querySelector('[data-stats-tab]');
 const statsBtn = document.querySelector('[data-stats-btn]');
 const filterBtn = document.querySelector('[data-filter');
-const closeStatsBtn = document.querySelector('[data-close-stats-tab]');
+
+//query selectors for time history tab
+const timesHistoryTab = document.querySelector('[data-times-history-tab');
+const timesHistoryBtn = document.querySelector('[data-times-history-btn');
 
 //query selectors for nav-btns
 const navBtnsContainer = document.querySelector('[data-nav-btn-container]');
 
+//query Selector for close btns
+const closeTabBtns = Array.from(document.querySelectorAll('.close-btn'));
+
 // function to open and close settings menu
 export function controlSettingsMenu() {
+  statsTab.classList.remove('stats-tab-open');
+  timesHistoryTab.classList.remove('times-history-tab-open');
   settingsTab.classList.toggle('settings-tab-open');
-  
 }
 
 // function to open and close stats menu
 export function controlStatsMenu() {
+  settingsTab.classList.remove('settings-tab-open');
+  timesHistoryTab.classList.remove('times-history-tab-open');
   statsTab.classList.toggle('stats-tab-open');
   statsBtn.blur();
+}
+
+//function to open and close times history tab
+function controlTimesHistoryTab() {
+  statsTab.classList.remove('stats-tab-open');
+  settingsTab.classList.remove('settings-tab-open');
+  timesHistoryTab.classList.toggle('times-history-tab-open');
+  timesHistoryBtn.blur();
 }
 
 // function to hide and show nav buttons in the top bar
@@ -34,10 +51,10 @@ export function hideShowNavButtons() {
 }
 
 // event listeners for settings
-settingsBtn.addEventListener('click', function(e){
+settingsBtn.addEventListener('click', function (e) {
   controlSettingsMenu();
   settingsBtn.blur();
-})
+});
 
 // event listeners for stats
 statsBtn.addEventListener('click', function () {
@@ -46,16 +63,29 @@ statsBtn.addEventListener('click', function () {
   if (statsTab.classList.contains('stats-tab-open')) {
     createChart();
   }
-  
 });
 
-closeStatsBtn.onclick = function () {
-  controlStatsMenu();
-};
+// function to close tabs when cross is clicked
+
+function closeTabs() {
+  statsTab.classList.remove('stats-tab-open');
+  settingsTab.classList.remove('settings-tab-open');
+  timesHistoryTab.classList.remove('times-history-tab-open');
+}
+
+//event listeners for close tab btns
+
+closeTabBtns.forEach((btn) => {
+  btn.addEventListener('click', closeTabs);
+});
+
+// events listeners for times history tabs
+timesHistoryBtn.addEventListener('click', function () {
+  controlTimesHistoryTab();
+});
 
 // resize settings/stats dropdown boxes when window is resized
 window.addEventListener('resize', function () {
-console.log('fire');
   statsTab.style.height = '';
   settingsTab.style.height = '';
 });
@@ -79,12 +109,20 @@ export function createChart() {
         {
           lineTension: 0,
           data: filteredArray,
+          backgroundColor: 'rgba(255, 255, 255, 0.726)',
+          borderColor: '#fff',
         },
       ],
     },
     options: {
       legend: {
         display: false,
+        labels: {
+          fontColor: '#fff',
+        },
+        title: {
+          fontColor: '#fff',
+        },
       },
       scales: {
         yAxes: [
@@ -92,6 +130,16 @@ export function createChart() {
             scaleLabel: {
               display: true,
               labelString: 'Time in seconds',
+              fontColor: '#fff',
+            },
+            ticks: {
+              fontColor: '#fff',
+            },
+            gridLines: {
+              color: 'rgba(255, 255, 255, 0.726)',
+              lineWidth: 1,
+              zeroLineColor: 'rgba(255, 255, 255, 0.726)',
+              zeroLineWidth: 1,
             },
           },
         ],
@@ -100,6 +148,16 @@ export function createChart() {
             scaleLabel: {
               display: true,
               labelString: 'Solves',
+              fontColor: '#fff',
+            },
+            ticks: {
+              fontColor: '#fff',
+            },
+            gridLines: {
+              color: 'rgba(255, 255, 255, 0.726)',
+              lineWidth: 1,
+              zeroLineColor: 'rgba(255, 255, 255, 0.726)',
+              zeroLineWidth: 1,
             },
           },
         ],
