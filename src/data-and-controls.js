@@ -200,7 +200,6 @@ function findSlowestOverall() {
   // function to clear history
   export function clearHistory(){
     localStorage.clear();
-    timesArray = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
     location.reload();
   }
 
