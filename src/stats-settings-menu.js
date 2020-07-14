@@ -146,6 +146,7 @@ export function createChart() {
             },
             ticks: {
               fontColor: '#fff',
+              beginAtZero: true,
             },
             gridLines: {
               color: 'rgba(255, 255, 255, 0.726)',
