@@ -10,7 +10,7 @@
   --orange: #ffcd70;
   --off-white: #fff;
   --grey: #000000a4;
-  --dark-blue: rgb(62, 63, 122);
+  --dark-blue: rgba(0, 0, 0, 0.767);
   --main-font: 'Quicksand', sans-serif;
   --trans-white: rgba(255, 255, 255, 0.726);
 }
@@ -234,6 +234,8 @@ h1 {
   overflow: auto;
 }
 
+
+/* styling for times history and table */
 .times-history-tab{
   background-color: var(--dark-blue);
   height: 0;
@@ -246,7 +248,7 @@ h1 {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   border-bottom: solid white 0.2rem;
 }
 
@@ -255,6 +257,37 @@ h1 {
   overflow: auto;
 }
 
+.times-table{
+  margin-top: 5rem;
+  width: 80%;
+  border-collapse: collapse;
+}
+td, th{
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 0.8rem;
+  vertical-align: middle;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd52;
+}
+
+.delete-btn{
+  font-size: 2rem;
+}
+
+.delete-btn:hover{
+  opacity: 0.5;
+}
+
+.remove-cell{
+  cursor: pointer;
+}
+
+
+/* close buttons on tabs */
 .close-btn{
   position: absolute;
   right:1.5rem;
@@ -277,5 +310,7 @@ h1 {
 .selected{
   color:white;
 }
+
+
 
 

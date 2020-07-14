@@ -2,6 +2,9 @@ import { relativeTimeThreshold } from 'moment';
 import { formatTime } from './timer';
 import { timerContainer } from './timer';
 import { resetStopWatchDisplay } from './timer';
+import moment from 'moment';
+import { renderTable } from './times-table';
+
 // query selector for message under timer and control buttons
 const timerMessage = document.querySelector('[data-timer-message]');
 const controlBtnsContainer = document.querySelector(
@@ -38,6 +41,7 @@ export class Time {
     this.id = Date.now() + Math.random();
     this.formattedTime = formatTime(this.recordedTime);
     this.scramble = scramble;
+    this.date = moment();
   }
   //function to toggle dnf value between true and false
   setDnf() {
@@ -47,6 +51,8 @@ export class Time {
       this.dnfValue = true;
     }
   }
+  
+  
 }
 
 //function to push new time to times array
@@ -203,6 +209,15 @@ function findSlowestOverall() {
     location.reload();
     console.log('fired');
   }
+
+// function to delete time from time array
+export function deleteTimes(e){
+  timesArray = timesArray.filter(time => time.id != e.target.id);
+  saveToLocalStorage();
+  renderStatsDisplay();
+  renderTable(timesArray);
+  }
+
 
 // event listeners for control btns
 

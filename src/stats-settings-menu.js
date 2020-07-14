@@ -7,6 +7,7 @@ import { filterDnfTimes } from './data-and-controls';
 var moment = require('moment');
 import Chart from 'chart.js';
 var Tabulator = require('tabulator-tables');
+import {renderTable} from './times-table'
 
 // query selectors settings
 const settingsTab = document.querySelector('[data-settings-tab]');
@@ -49,6 +50,7 @@ function controlTimesHistoryTab() {
   settingsTab.classList.remove('settings-tab-open');
   timesHistoryTab.classList.toggle('times-history-tab-open');
   timesHistoryBtn.blur();
+  renderTable(timesArray);
 }
 
 // function to hide and show nav buttons in the top bar
@@ -176,15 +178,5 @@ export function createChart() {
   });
 }
 
-var table = new Tabulator('#times-table', {
-  data: timesArray,
-  layout: "fitData",
-  tooltips:true,
-  height: '311px',
-  columns: [
-  {title: "Time", field:"formattedTime"},
-  {title: "Scramble", field:"scramble"}
-  ],
-});
 
-console.log(timesArray);
+

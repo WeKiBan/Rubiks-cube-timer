@@ -31,6 +31,7 @@
     "rubiks-cube-scramble": "^1.0.2",
     "sr-scrambler": "^1.0.1",
     "statman-stopwatch": "^2.11.1",
-    "tabulator-tables": "^4.7.2"
+    "tabulator-tables": "^4.7.2",
+    "zinggrid": "^1.2.1"
   }
 }
