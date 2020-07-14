@@ -213,6 +213,9 @@ function findSlowestOverall() {
 // function to delete time from time array
 export function deleteTimes(e){
   timesArray = timesArray.filter(time => time.id != e.target.id);
+  resetStopWatchDisplay();
+  hideControlBtns();
+  showTimerMessage();
   saveToLocalStorage();
   renderStatsDisplay();
   renderTable(timesArray);
@@ -223,7 +226,6 @@ export function deleteTimes(e){
 
 deleteBtn.addEventListener('click', function (e) {
   e.stopPropagation();
-  let currentId = timesArray[0].id;
   deleteTime(currentId);
   resetStopWatchDisplay();
   hideControlBtns();
