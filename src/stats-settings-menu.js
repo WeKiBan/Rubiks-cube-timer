@@ -163,9 +163,11 @@ export function createChart() {
               fontColor: '#fff',
             },
             ticks: {
+              display:false,
               fontColor: '#fff',
             },
             gridLines: {
+              display:false,
               color: 'rgba(255, 255, 255, 0.726)',
               lineWidth: 1,
               zeroLineColor: 'rgba(255, 255, 255, 0.726)',
