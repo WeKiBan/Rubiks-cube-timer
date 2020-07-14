@@ -84,10 +84,11 @@ export function deselectDnfBtn() {
 }
 
 // function to delete time from array
-function deleteTime(timeId) {
+function deleteCurrentTime(timeId) {
     timesArray = timesArray.filter(times => times.id !== timeId);
 }
 
+// function to filter out the times where the cube was not finished
 export function filterDnfTimes() {
   let filteredArray = timesArray.filter((time) => time.dnfValue === false);
   return filteredArray;
@@ -226,7 +227,8 @@ export function deleteTimes(e){
 
 deleteBtn.addEventListener('click', function (e) {
   e.stopPropagation();
-  deleteTime(currentId);
+  let currentId = timesArray[0].id;
+  deleteCurrentTime(currentId);
   resetStopWatchDisplay();
   hideControlBtns();
   showTimerMessage();
