@@ -154,9 +154,8 @@ h1 {
 
 
 .control-btn:hover{
-  border: none;
-  background-color: white;
-  color: var(--red);
+ border: 2px white solid;
+ transform: scale(1.02);
 }
 
 .stats-container {
