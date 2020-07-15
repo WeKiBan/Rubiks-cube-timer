@@ -156,7 +156,7 @@ h1 {
 .control-btn:hover{
   border: none;
   background-color: white;
-  color: grey;
+  color: var(--red);
 }
 
 .stats-container {
@@ -343,7 +343,8 @@ tr:nth-child(even) {
 }
 
 .selected{
-  color:white;
+  background-color: white;
+  color: var(--red);
 }
 
 
