@@ -352,6 +352,7 @@ tr:nth-child(even) {
 .times-history-tab ::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 1.5rem;
+  border: solid 1px white;
 
 }
 
