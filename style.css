@@ -144,10 +144,19 @@ h1 {
 }
 
 .control-btn{
-  height:2.5rem;
-  font-size: 1rem;
-  width:6rem;
+  padding:0.7rem;
   cursor: pointer;
+  background-color: transparent;
+  border:white 1px solid;
+  color: white;
+  transition: ease-in-out 0.2s;
+}
+
+
+.control-btn:hover{
+  border: none;
+  background-color: white;
+  color: grey;
 }
 
 .stats-container {
@@ -213,28 +222,6 @@ h1 {
   margin-top: 5rem;
 }
 
-.settings-tab {
-  background-color: var(--dark-blue);
-  height: 0;
-  position: absolute;
-  width: 100%;
-  z-index: 99;
-  top: 6rem;
-  height: 0;
-  transition: ease-in-out 1s;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: solid white 0.2rem;
-}
-
-.settings-tab-open {
-  height: calc(100% - 20rem);
-  overflow: auto;
-}
-
-
 /* styling for times history and table */
 .times-history-tab{
   background-color: var(--dark-blue);
@@ -247,8 +234,9 @@ h1 {
   transition: ease-in-out 1s;
   overflow: hidden;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: solid white 0.2rem;
 }
 
@@ -257,21 +245,52 @@ h1 {
   overflow: auto;
 }
 
-.times-table{
+.table-container{
   margin-top: 5rem;
-  width: 80%;
-  border-collapse: collapse;
+  max-height:59vh;
+  border:solid #fff 1px;
+  overflow-y: auto;
+  width:80%;
 }
+
+.times-table{
+  top:0;
+  border-collapse: collapse;
+  width:100%;
+}
+
+th{
+  position: sticky;
+  top:0;
+  background-color:rgba(155, 155, 155, 0.849);
+  box-shadow: inset 1px 1px rgb(255, 255, 255), 0 1px rgb(255, 255, 255);
+}
+
 td, th{
-  border: 1px solid #dddddd;
+
   text-align: left;
-  padding: 0.8rem;
+  padding: 8px 16px;
   vertical-align: middle;
   text-align: center;
 }
 
+td{
+  border: 1px solid #dddddd;
+}
+
 tr:nth-child(even) {
   background-color: #dddddd52;
+}
+
+.sort-arrow{
+  height:100%;
+  margin-left:0.5rem;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.sort-arrow:hover{
+  opacity: 0.5;;
 }
 
 .delete-btn{
@@ -284,6 +303,23 @@ tr:nth-child(even) {
 
 .remove-cell{
   cursor: pointer;
+}
+
+.clear-history-btn{
+  margin-bottom:2rem;
+  padding:0.7rem;
+  cursor: pointer;
+  background-color: transparent;
+  border:white 1px solid;
+  color: white;
+  transition: ease-in-out 0.2s;
+}
+
+.clear-history-btn:hover{
+  border: none;
+  background-color: white;
+  color: grey;
+  transform: scale(1.1);
 }
 
 
