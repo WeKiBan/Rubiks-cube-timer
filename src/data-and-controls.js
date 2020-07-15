@@ -84,8 +84,9 @@ export function deselectDnfBtn() {
 }
 
 // function to delete time from array
-function deleteCurrentTime(timeId) {
-    timesArray = timesArray.filter(times => times.id !== timeId);
+function deleteCurrentTime() {
+  let currentId = timesArray[0].id;
+  timesArray = timesArray.filter(times => times.id !== timeId);
 }
 
 // function to filter out the times where the cube was not finished
@@ -210,6 +211,8 @@ function findSlowestOverall() {
     timesArray = [];
     saveToLocalStorage();
     resetStopWatchDisplay();
+    hideControlBtns();
+    showTimerMessage();
     renderStatsDisplay();
     renderTable(timesArray);
     
@@ -217,6 +220,9 @@ function findSlowestOverall() {
 
 // function to delete time from time array
 export function deleteTimes(e){
+  if(timesArray.length === 0) {
+    return 
+  }
   timesArray = timesArray.filter(time => time.id != e.target.id);
   resetStopWatchDisplay();
   hideControlBtns();
@@ -231,8 +237,7 @@ export function deleteTimes(e){
 
 deleteBtn.addEventListener('click', function (e) {
   e.stopPropagation();
-  let currentId = timesArray[0].id;
-  deleteCurrentTime(currentId);
+  deleteCurrentTime();
   resetStopWatchDisplay();
   hideControlBtns();
   showTimerMessage();
