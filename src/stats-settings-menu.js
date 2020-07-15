@@ -2,6 +2,7 @@ import {
   timesArray,
   renderStatsDisplay,
   clearHistory,
+  resetAllTimerAndStats,
 } from './data-and-controls';
 import { filterDnfTimes } from './data-and-controls';
 var moment = require('moment');
@@ -18,6 +19,11 @@ const filterBtn = document.querySelector('[data-filter');
 const timesHistoryTab = document.querySelector('[data-times-history-tab');
 const timesHistoryBtn = document.querySelector('[data-times-history-btn');
 const clearHistoryBtn = document.querySelector('[data-clear-history-btn');
+
+//query selectors for time history modal 
+const clearTimeHistoryModal = document.querySelector('[data-delete-history-modal]')
+const cancelTimesHistoryBtn = document.querySelector('[data-cancel-history-btn]');
+const confirmDeleteHistoryBtn = document.querySelector('[data-confirm-delete-history-btn]')
 
 //query selectors for nav-btns
 const navBtnsContainer = document.querySelector('[data-nav-btn-container]');
@@ -75,13 +81,35 @@ timesHistoryBtn.addEventListener('click', function () {
 });
 
 clearHistoryBtn.addEventListener('click', function () {
-  clearHistory();
+  clearTimeHistoryModal.style.display = "flex";
 });
 
 // resize settings/stats dropdown boxes when window is resized
 window.addEventListener('resize', function () {
   statsTab.style.height = '';
   timesHistoryTab.style.height = '';
+});
+
+// modal btn event listeners
+//confirm delete time
+confirmDeleteHistoryBtn.addEventListener('click', function (e) {
+  clearTimeHistoryModal.style.display = 'none';
+  resetAllTimerAndStats();
+  clearHistory();
+});
+
+//cancel delete and close modal
+cancelTimesHistoryBtn.addEventListener('click', function () {
+  clearTimeHistoryModal.style.display = 'none';
+});
+
+// close modal if click outside
+
+// When the user clicks anywhere outside of the modal, close it
+window.addEventListener('click', function (event) {
+  if (event.target == clearTimeHistoryModal) {
+   clearTimeHistoryModal.style.display = 'none';
+  }
 });
 
 // chart on stats tab
