@@ -246,7 +246,6 @@ h1 {
 
 .table-container{
   margin-top: 5rem;
-  max-height:55vh;
   border:solid #fff 1px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -308,7 +307,7 @@ tr:nth-child(even) {
 }
 
 .clear-history-btn{
-  margin:3rem 0 5rem 0;
+  margin: 2rem 0 3rem 0;
   padding:0.7rem;
   cursor: pointer;
   background-color: transparent;
