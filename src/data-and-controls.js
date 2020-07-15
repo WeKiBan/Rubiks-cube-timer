@@ -85,7 +85,7 @@ export function deselectDnfBtn() {
 
 // function to delete time from array
 function deleteCurrentTime() {
-  let currentId = timesArray[0].id;
+  let timeId = timesArray[0].id;
   timesArray = timesArray.filter(times => times.id !== timeId);
 }
 
