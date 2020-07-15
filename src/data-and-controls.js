@@ -237,7 +237,6 @@ export function deleteTimes(e) {
 }
 
 export function resetAllTimerAndStats(){
-  deleteCurrentTime();
   resetStopWatchDisplay();
   hideControlBtns();
   showTimerMessage();
@@ -266,7 +265,8 @@ dnfBtn.addEventListener('click', function (e) {
 //confirm delete time
 confirmDeleteBtn.addEventListener('click', function (e) {
   deleteTimeModal.style.display = 'none';
-  
+  deleteCurrentTime();
+  resetAllTimerAndStats();
 });
 
 //cancel delete and close modal

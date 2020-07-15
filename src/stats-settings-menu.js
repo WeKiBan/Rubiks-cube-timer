@@ -96,6 +96,7 @@ confirmDeleteHistoryBtn.addEventListener('click', function (e) {
   clearTimeHistoryModal.style.display = 'none';
   resetAllTimerAndStats();
   clearHistory();
+  controlTimesHistoryTab();
 });
 
 //cancel delete and close modal
