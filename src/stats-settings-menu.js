@@ -7,12 +7,7 @@ import { filterDnfTimes } from './data-and-controls';
 var moment = require('moment');
 import Chart from 'chart.js';
 var Tabulator = require('tabulator-tables');
-import {renderTable} from './times-table'
-
-// query selectors settings
-const settingsTab = document.querySelector('[data-settings-tab]');
-const settingsBtn = document.querySelector('[data-settings-btn]');
-const clearHistoryBtn = document.querySelector('[data-clear-history-btn');
+import { renderTable } from './times-table';
 
 // query selectors stats
 const statsTab = document.querySelector('[data-stats-tab]');
@@ -22,6 +17,7 @@ const filterBtn = document.querySelector('[data-filter');
 //query selectors for time history tab
 const timesHistoryTab = document.querySelector('[data-times-history-tab');
 const timesHistoryBtn = document.querySelector('[data-times-history-btn');
+const clearHistoryBtn = document.querySelector('[data-clear-history-btn');
 
 //query selectors for nav-btns
 const navBtnsContainer = document.querySelector('[data-nav-btn-container]');
@@ -29,16 +25,9 @@ const navBtnsContainer = document.querySelector('[data-nav-btn-container]');
 //query Selector for close btns
 const closeTabBtns = Array.from(document.querySelectorAll('.close-btn'));
 
-// function to open and close settings menu
-export function controlSettingsMenu() {
-  statsTab.classList.remove('stats-tab-open');
-  timesHistoryTab.classList.remove('times-history-tab-open');
-  settingsTab.classList.toggle('settings-tab-open');
-}
 
 // function to open and close stats menu
 export function controlStatsMenu() {
-  settingsTab.classList.remove('settings-tab-open');
   timesHistoryTab.classList.remove('times-history-tab-open');
   statsTab.classList.toggle('stats-tab-open');
   statsBtn.blur();
@@ -47,7 +36,6 @@ export function controlStatsMenu() {
 //function to open and close times history tab
 function controlTimesHistoryTab() {
   statsTab.classList.remove('stats-tab-open');
-  settingsTab.classList.remove('settings-tab-open');
   timesHistoryTab.classList.toggle('times-history-tab-open');
   timesHistoryBtn.blur();
   renderTable(timesArray);
@@ -58,15 +46,6 @@ export function hideShowNavButtons() {
   navBtnsContainer.classList.toggle('hidden');
 }
 
-// event listeners for settings
-settingsBtn.addEventListener('click', function (e) {
-  controlSettingsMenu();
-  settingsBtn.blur();
-});
-
-clearHistoryBtn.addEventListener('click', function () {
-  clearHistory();
-});
 
 // event listeners for stats
 statsBtn.addEventListener('click', function () {
@@ -81,7 +60,6 @@ statsBtn.addEventListener('click', function () {
 
 function closeTabs() {
   statsTab.classList.remove('stats-tab-open');
-  settingsTab.classList.remove('settings-tab-open');
   timesHistoryTab.classList.remove('times-history-tab-open');
 }
 
@@ -96,10 +74,14 @@ timesHistoryBtn.addEventListener('click', function () {
   controlTimesHistoryTab();
 });
 
+clearHistoryBtn.addEventListener('click', function () {
+  clearHistory();
+});
+
 // resize settings/stats dropdown boxes when window is resized
 window.addEventListener('resize', function () {
   statsTab.style.height = '';
-  settingsTab.style.height = '';
+  timesHistoryTab.style.height = '';
 });
 
 // chart on stats tab
@@ -164,11 +146,11 @@ export function createChart() {
               fontColor: '#fff',
             },
             ticks: {
-              display:false,
+              display: false,
               fontColor: '#fff',
             },
             gridLines: {
-              display:false,
+              display: false,
               color: 'rgba(255, 255, 255, 0.726)',
               lineWidth: 1,
               zeroLineColor: 'rgba(255, 255, 255, 0.726)',
@@ -180,6 +162,3 @@ export function createChart() {
     },
   });
 }
-
-
-

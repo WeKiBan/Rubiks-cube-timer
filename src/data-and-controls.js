@@ -207,8 +207,12 @@ function findSlowestOverall() {
   // function to clear history
   export function clearHistory(){
     localStorage.clear();
-    location.reload();
-    console.log('fired');
+    timesArray = [];
+    saveToLocalStorage();
+    resetStopWatchDisplay();
+    renderStatsDisplay();
+    renderTable(timesArray);
+    
   }
 
 // function to delete time from time array
