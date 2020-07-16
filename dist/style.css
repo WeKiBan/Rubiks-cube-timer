@@ -134,6 +134,12 @@ h1 {
 }
 
 /* control buttons under timer */
+@media only screen and (max-width: 600px) {
+  .control-btns-container{
+    display:flex;
+    flex-direction: column;
+  }
+}
 
 .control-btns-container{
   position: absolute;
@@ -142,6 +148,8 @@ h1 {
 
 .control-btn{
   padding:0.7rem;
+  margin:0.5rem;
+  width:10rem;
   cursor: pointer;
   background-color: transparent;
   border:white 1px solid;
