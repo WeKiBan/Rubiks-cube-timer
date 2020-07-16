@@ -20,16 +20,26 @@ const timesHistoryTab = document.querySelector('[data-times-history-tab');
 const timesHistoryBtn = document.querySelector('[data-times-history-btn');
 const clearHistoryBtn = document.querySelector('[data-clear-history-btn');
 
-//query selectors for time history modal 
-const clearTimeHistoryModal = document.querySelector('[data-delete-history-modal]')
-const cancelTimesHistoryBtn = document.querySelector('[data-cancel-history-btn]');
-const confirmDeleteHistoryBtn = document.querySelector('[data-confirm-delete-history-btn]')
+//query selectors for time history modal
+const clearTimeHistoryModal = document.querySelector(
+  '[data-delete-history-modal]'
+);
+const cancelTimesHistoryBtn = document.querySelector(
+  '[data-cancel-history-btn]'
+);
+const confirmDeleteHistoryBtn = document.querySelector(
+  '[data-confirm-delete-history-btn]'
+);
 
 //query selectors for nav-btns
 const navBtnsContainer = document.querySelector('[data-nav-btn-container]');
 
 //query Selector for close btns
 const closeTabBtns = Array.from(document.querySelectorAll('.close-btn'));
+
+
+//query selector for chart options
+const chartOptionsSelect = document.querySelector('[data-chart-options]')
 
 
 // function to open and close stats menu
@@ -52,13 +62,12 @@ export function hideShowNavButtons() {
   navBtnsContainer.classList.toggle('hidden');
 }
 
-
 // event listeners for stats
 statsBtn.addEventListener('click', function () {
   controlStatsMenu();
   // if stats tab is open create the chart on opening
   if (statsTab.classList.contains('stats-tab-open')) {
-    createChart();
+    createChart(filterArray('all'));
   }
 });
 
@@ -81,7 +90,7 @@ timesHistoryBtn.addEventListener('click', function () {
 });
 
 clearHistoryBtn.addEventListener('click', function () {
-  clearTimeHistoryModal.style.display = "flex";
+  clearTimeHistoryModal.style.display = 'flex';
 });
 
 // resize settings/stats dropdown boxes when window is resized
@@ -109,17 +118,19 @@ cancelTimesHistoryBtn.addEventListener('click', function () {
 // When the user clicks anywhere outside of the modal, close it
 window.addEventListener('click', function (event) {
   if (event.target == clearTimeHistoryModal) {
-   clearTimeHistoryModal.style.display = 'none';
+    clearTimeHistoryModal.style.display = 'none';
   }
 });
+
+//event listener for chart options
+chartOptionsSelect.addEventListener('change', function(e){
+  createChart(filterArray(e.target.value));
+})
 
 // chart on stats tab
 var CHART = document.getElementById('lineChart');
 
-export function createChart() {
-  let filteredArray = filterDnfTimes()
-    .map((item) => (item.recordedTime / 1000).toFixed(3))
-    .reverse();
+export function createChart(filteredArray) {
   let labels = [];
   for (let i = 1; i <= filteredArray.length; i++) {
     labels.push(i);
@@ -190,4 +201,29 @@ export function createChart() {
       },
     },
   });
+}
+
+//function to filter array
+function filterArray(arrayLength) {
+  let filteredArray = filterDnfTimes()
+    .map((item) => (item.recordedTime / 1000).toFixed(3))
+    .reverse();
+  if (arrayLength === 'all') {
+    return filteredArray;
+  }
+  if (arrayLength === '5') {
+    return filteredArray.slice(0, 6);
+  }
+  if (arrayLength === '10') {
+    return filteredArray.slice(0, 11);
+  }
+  if (arrayLength === '50') {
+    return filteredArray.slice(0, 51);
+  }
+  if (arrayLength === '100') {
+    return filteredArray.slice(0, 101);
+  }
+  if (arrayLength === '1000') {
+    return filteredArray.slice(0, 1001);
+  }
 }

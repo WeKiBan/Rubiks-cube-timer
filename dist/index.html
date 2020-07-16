@@ -28,9 +28,20 @@
     </header>
     <div class="stats-tab" data-stats-tab>
         <i class="fas fa-times close-btn" data-close-stats-tab></i>
+         
         <div class="chart-container">
+          <select class="chart-options" name="options" id="options" data-chart-options>
+            <option value="all">All times</option>
+            <option value="5">Last 5</option>
+            <option value="10">Last 10</option>
+            <option value="50">Last 50</option>
+            <option value="100">Last 100</option>
+            <option value="1000">Last 1000</option>
+          </select>
             <canvas id="lineChart" width="400" height="400"></canvas>
         </div>
+       
+     
     </div>
     <div class="times-history-tab" data-times-history-tab>
         <i class="fas fa-times close-btn"></i>

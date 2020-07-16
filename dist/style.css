@@ -224,7 +224,15 @@ h1 {
   max-width: 50rem;
   margin-right: 3rem;
 }
+.chart-options{
+  background-color: transparent;
+  color:white;
+  margin-left:6rem;
+  width:10rem;
+  margin-bottom:0.5rem;
 
+  
+}
 /* styling for times history and table */
 .times-history-tab{
   background-color: var(--dark-blue);
