@@ -21,7 +21,7 @@ export function renderTable(sortedTimesArray) {
 }
 
 function renderRow(time) {
-  const date = moment(time.date).format('Do MMM H:mm:SS');
+  const date = moment(time.date).format('Do MMM H:mm');
   const formattedTime = time.formattedTime;
   const scramble = time.scramble;
   const row = document.createElement('tr');
