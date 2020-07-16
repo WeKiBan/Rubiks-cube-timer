@@ -67,7 +67,8 @@ statsBtn.addEventListener('click', function () {
   controlStatsMenu();
   // if stats tab is open create the chart on opening
   if (statsTab.classList.contains('stats-tab-open')) {
-    createChart(filterArray('all'));
+    chartOptionsSelect.value = 'all';
+    createChart(filterArray(chartOptionsSelect.value));
   }
 });
 
