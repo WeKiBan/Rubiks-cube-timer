@@ -221,7 +221,7 @@ h1 {
 
 .chart-container{
   width:80%;
-  max-width: 50rem;
+  max-width: 45rem;
   margin-right: 3rem;
 }
 .chart-options{
@@ -230,8 +230,6 @@ h1 {
   margin-left:6rem;
   width:10rem;
   margin-bottom:0.5rem;
-
-  
 }
 /* styling for times history and table */
 .times-history-tab{
