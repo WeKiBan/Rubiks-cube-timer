@@ -2,112 +2,112 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="manifest" href="manifest.webmanifest">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
-    <script defer src="index.js"></script>
-    <script src="https://kit.fontawesome.com/366e86972c.js" crossorigin="anonymous"></script>
-    </script>
-    <title>Rubik's cube timer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,  maximum-scale=1.0, user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="index.js"></script>
+  <script src="https://kit.fontawesome.com/366e86972c.js" crossorigin="anonymous"></script>
+  </script>
+  <title>Rubik's cube timer</title>
 </head>
 
 <body>
-    <header>
-        <div class="logo-container">
-            <img class="cube-icon" src="https://img.icons8.com/color/48/000000/rubiks-cube.png" />
-            <h1 class="logo-header">PB Timer</h1>
-        </div>
-
-        <div class="nav-btn-container" data-nav-btn-container>
-            <i class="far fa-chart-bar nav-btn" data-stats-btn></i>
-            <i class="fas fa-history nav-btn" data-times-history-btn></i>
-        </div>
-    </header>
-    <div class="stats-tab" data-stats-tab>
-        <i class="fas fa-times close-btn" data-close-stats-tab></i>
-         
-        <div class="chart-container">
-          <select class="chart-options" name="options" id="options" data-chart-options>
-            <option value="all">All times</option>
-            <option value="5">Last 5</option>
-            <option value="10">Last 10</option>
-            <option value="50">Last 50</option>
-            <option value="100">Last 100</option>
-            <option value="1000">Last 1000</option>
-          </select>
-            <canvas id="lineChart" width="400" height="400"></canvas>
-        </div>
-       
-     
-    </div>
-    <div class="times-history-tab" data-times-history-tab>
-        <i class="fas fa-times close-btn"></i>
-
-        <div class="table-container">
-            <table class="times-table">
-                <thead class="table-header">
-                    <th>Time <i class="fas fa-sort sort-arrow" data-sort-times-btn></i></th>
-                    <th>Scramble</th>
-                    <th>Date <i class="fas fa-sort sort-arrow" data-sort-dates-btn></i></th>
-                    <th><i class="fas fa-trash-alt"></i></th>
-                </thead>
-                <tbody data-times-table>
-                </tbody>
-            </table>
-        </div>
-        <button class="clear-history-btn" data-clear-history-btn>CLEAR ALL HISTORY</button>
-    </div>
-    <div class="timer-container" data-timer-container>
-        <p class="scramble" data-scramble-display>F' L2 B' L R2 D R L2 D' B' U' R' U' F' U2 D B2 F D2
-            L B' L2 U L' B</p>
-        <p class="timer" data-timer-display>00:00.000</p>
-        <p class="timer-message" data-timer-message>Tap screen or spacebar to start and stop timer
-        </p>
-        <div class="control-btns-container hidden" data-control-btns-container>
-            <button class="control-btn" data-dnf-btn>DNF</button>
-            <button class="control-btn" data-delete-btn>DELETE</button>
-        </div>
-    </div>
-    <div class="stats-container">
-        <p class="info-item left-align">Fastest of 5: <span class="stat-item" data-fastest-5>00:00:00</span></p>
-        <p class="info-item right-align">Slowest of 5: <span class="stat-item" data-slowest-5>00:00:00</span> </p>
-        <p class="info-item left-align">Average of 5: <span class="stat-item" data-average-5>00:00:00</span></p>
-        <p class="info-item right-align">Average of 12: <span class="stat-item" data-average-12>00:00:00</span></p>
-        <p class="info-item left-align">Slowest Time: <span class="stat-item" data-slowest-all>00:00:00</span></p>
-        <p class="info-item right-align">Fastest Time: <span class="stat-item" data-fastest-all>00:00:00</span></p>
-        <p class="info-item left-align">Amount of solves:<span class="stat-item" data-number-solves>00:00:00</span></p>
-        <p class="info-item right-align">Overall average: <span class="stat-item" data-average-all>00:00:00</span></p>
+  <header>
+    <div class="logo-container">
+      <img class="cube-icon" src="https://img.icons8.com/color/48/000000/rubiks-cube.png" />
+      <h1 class="logo-header">PB Timer</h1>
     </div>
 
-    <div id="id01" class="modal" data-delete-time-modal>
-        
-        <form class="modal-content">
-          <div class="container">
-            <p>Are you sure you want to delete your time?</p>
-            <div class="clearfix">
-              <button type="button" class="modal-btn cancelbtn" data-cancel-delete-btn>Cancel</button>
-              <button type="button" class="modal-btn deletebtn" data-confirm-delete-time-btn>Delete</button>
-            </div>
-          </div>
-        </form>
+    <div class="nav-btn-container" data-nav-btn-container>
+      <i class="far fa-chart-bar nav-btn" data-stats-btn></i>
+      <i class="fas fa-history nav-btn" data-times-history-btn></i>
+    </div>
+  </header>
+  <div class="stats-tab" data-stats-tab>
+    <i class="fas fa-times close-btn" data-close-stats-tab></i>
+
+    <div class="chart-container">
+      <select class="chart-options" name="options" id="options" data-chart-options>
+        <option value="all">All times</option>
+        <option value="5">Last 5</option>
+        <option value="10">Last 10</option>
+        <option value="50">Last 50</option>
+        <option value="100">Last 100</option>
+        <option value="1000">Last 1000</option>
+      </select>
+      <canvas id="lineChart" width="400" height="400"></canvas>
+    </div>
+
+
+  </div>
+  <div class="times-history-tab" data-times-history-tab>
+    <i class="fas fa-times close-btn"></i>
+
+    <div class="table-container">
+      <table class="times-table">
+        <thead class="table-header">
+          <th>Time <i class="fas fa-sort sort-arrow" data-sort-times-btn></i></th>
+          <th>Scramble</th>
+          <th>Date <i class="fas fa-sort sort-arrow" data-sort-dates-btn></i></th>
+          <th><i class="fas fa-trash-alt"></i></th>
+        </thead>
+        <tbody data-times-table>
+        </tbody>
+      </table>
+    </div>
+    <button class="clear-history-btn" data-clear-history-btn>CLEAR ALL HISTORY</button>
+  </div>
+  <div class="timer-container" data-timer-container>
+    <p class="scramble" data-scramble-display>F' L2 B' L R2 D R L2 D' B' U' R' U' F' U2 D B2 F D2
+      L B' L2 U L' B</p>
+    <p class="timer" data-timer-display>00:00.000</p>
+    <p class="timer-message" data-timer-message>Tap screen or spacebar to start and stop timer
+    </p>
+    <div class="control-btns-container hidden" data-control-btns-container>
+      <button class="control-btn" data-dnf-btn>DNF</button>
+      <button class="control-btn" data-delete-btn>DELETE</button>
+    </div>
+  </div>
+  <div class="stats-container">
+    <p class="info-item left-align">Fastest of 5: <span class="stat-item" data-fastest-5>00:00:00</span></p>
+    <p class="info-item right-align">Slowest of 5: <span class="stat-item" data-slowest-5>00:00:00</span> </p>
+    <p class="info-item left-align">Average of 5: <span class="stat-item" data-average-5>00:00:00</span></p>
+    <p class="info-item right-align">Average of 12: <span class="stat-item" data-average-12>00:00:00</span></p>
+    <p class="info-item left-align">Slowest Time: <span class="stat-item" data-slowest-all>00:00:00</span></p>
+    <p class="info-item right-align">Fastest Time: <span class="stat-item" data-fastest-all>00:00:00</span></p>
+    <p class="info-item left-align">Amount of solves:<span class="stat-item" data-number-solves>00:00:00</span></p>
+    <p class="info-item right-align">Overall average: <span class="stat-item" data-average-all>00:00:00</span></p>
+  </div>
+
+  <div id="id01" class="modal" data-delete-time-modal>
+
+    <form class="modal-content">
+      <div class="container">
+        <p>Are you sure you want to delete your time?</p>
+        <div class="clearfix">
+          <button type="button" class="modal-btn cancelbtn" data-cancel-delete-btn>Cancel</button>
+          <button type="button" class="modal-btn deletebtn" data-confirm-delete-time-btn>Delete</button>
+        </div>
       </div>
+    </form>
+  </div>
 
-      <div class="modal" data-delete-history-modal>
-        
-        <form class="modal-content">
-          <div class="container">
-            <p>Are you sure you want all your history?</p>
-            <div class="clearfix">
-              <button type="button" class="modal-btn cancelbtn" data-cancel-history-btn>Cancel</button>
-              <button type="button" class="modal-btn deletebtn" data-confirm-delete-history-btn>Delete</button>
-            </div>
-          </div>
-        </form>
+  <div class="modal" data-delete-history-modal>
+
+    <form class="modal-content">
+      <div class="container">
+        <p>Are you sure you want all your history?</p>
+        <div class="clearfix">
+          <button type="button" class="modal-btn cancelbtn" data-cancel-history-btn>Cancel</button>
+          <button type="button" class="modal-btn deletebtn" data-confirm-delete-history-btn>Delete</button>
+        </div>
       </div>
-      
+    </form>
+  </div>
+
 </body>
 
 </html>
