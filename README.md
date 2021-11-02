@@ -12,6 +12,8 @@ A Rubik's cube timer built with Vanilla JavaScript.
 - CSS
 - Javascript
 - [Chart JS](https://www.chartjs.org/) - A plugin to include graphs on your website.
+- [SR-Scrambler](https://www.npmjs.com/package/sr-scrambler) - a plugin which generates scrambles.
+- [Statman-Stopwatch](https://www.npmjs.com/package/statman-stopwatch) - a Stopwatch plugin.
 
 ### Features
 
