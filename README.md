@@ -11,7 +11,7 @@ A Rubik's cube timer built with Vanilla JavaScript.
 - HTML
 - CSS
 - Javascript
-- ![ChartJS](https://www.chartjs.org/) - A plugin to include graphs on your website.
+- [ChartJS](https://www.chartjs.org/) - A plugin to include graphs on your website.
 
 ### Features
 
